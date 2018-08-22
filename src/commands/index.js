@@ -17,13 +17,13 @@ function run(command, context) {
 	}
 
 	if (command in commands.restricted) {
+		const { isAdmin, isMod, displayName, say } = context;
+
 		if (isAdmin || isMod) {
 			return commands.restricted[command](context);
 		} else {
-			return context.say(
-				`Sorry @${
-					context.displayName
-				}, only mods and admins can use that feature`
+			return say(
+				`Sorry @${displayName}, only mods and admins can use that feature`
 			);
 		}
 	}
