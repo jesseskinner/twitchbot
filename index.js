@@ -5,7 +5,8 @@ require('dotenv').config({
 const { bot } = require('./src/bot');
 
 bot({
-	channels: ['#jesseskinner'],
+	channelName: 'jesseskinner',
+	channelId: 106610665,
 	username: process.env.TWITCH_USERNAME,
 	password: process.env.TWITCH_PASSWORD,
 	clientId: process.env.TWITCH_CLIENT_ID

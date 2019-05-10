@@ -5,12 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "^6.0.0",
-    "twitch-js": "^1.2.14"
+    "node-fetch": "^2.5.0",
+    "twitch-js": "^1.2.17"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js >> log.txt",
+    "test": "node index.js"
   },
   "author": "",
   "license": "GPLv3"

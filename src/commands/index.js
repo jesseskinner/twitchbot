@@ -1,20 +1,23 @@
 const { shoutout } = require('./shoutout');
 const { uptime } = require('./uptime');
 const { message } = require('./message');
-const { tkf, hardware } = require('./text');
+const { title } = require('./title');
+const { tkf, hardware, discord } = require('./text');
 
 const commands = {
 	restricted: {
 		so: shoutout,
 		shoutout,
 		msg: message,
-		message
+		message,
+		title
 	},
 	public: {
 		uptime,
 		tkf,
 		hardware,
 		system: hardware,
+		discord,
 	}
 };
 
