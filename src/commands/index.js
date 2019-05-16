@@ -2,7 +2,7 @@ const { shoutout } = require('./shoutout');
 const { uptime } = require('./uptime');
 const { message } = require('./message');
 const { title } = require('./title');
-const textCommands = require('./text');
+const { newCommand, commands: text } = require('./text');
 
 const commands = {
 	restricted: {
@@ -10,17 +10,22 @@ const commands = {
 		shoutout,
 		msg: message,
 		message,
-		title
+		title,
+		new: newCommand
 	},
 	public: {
 		uptime,
-		...textCommands,
-	}
+	},
+	text
 };
 
 function run(command, context) {
 	if (command in commands.public) {
 		return commands.public[command](context);
+	}
+
+	if (command in commands.text) {
+		return context.say(commands.text[command]);
 	}
 
 	if (command in commands.restricted) {
@@ -38,7 +43,7 @@ function run(command, context) {
 		}
 	}
 
-	context.say(`Sorry, I don't know that command!`);
+	// TODO: save command to a wish list
 }
 
 function addCommand(command, callback) {
